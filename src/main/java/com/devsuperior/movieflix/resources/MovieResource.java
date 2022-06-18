@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -19,8 +20,10 @@ public class MovieResource {
     MovieService service;
 
     @GetMapping
-    public ResponseEntity<Page<MovieDTO>> findAll(Pageable pageable) {
-        Page<MovieDTO> page = service.findAllPaged(pageable);
+    public ResponseEntity<Page<MovieDTO>> findByGenre(
+            @RequestParam(value = "genreId", defaultValue = "0") Long genreId,
+            Pageable pageable) {
+        Page<MovieDTO> page = service.findByGenre(genreId, pageable);
 
         return ResponseEntity.ok().body(page);
     }

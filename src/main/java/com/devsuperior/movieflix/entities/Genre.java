@@ -44,6 +44,7 @@ public class Genre implements Serializable {
         this.name = name;
     }
 
+    @OneToMany(mappedBy = "genre")
     public List<Movie> getMovies() {
         return movies;
     }

@@ -1,7 +1,6 @@
-package com.devsuperior.movieflix.controllers;
+package com.devsuperior.movieflix.resources;
 
 import com.devsuperior.movieflix.dto.GenreDTO;
-import com.devsuperior.movieflix.entities.Genre;
 import com.devsuperior.movieflix.services.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/genres")
-public class GenreController {
+public class GenreResource {
 
     @Autowired
     private GenreService service;
