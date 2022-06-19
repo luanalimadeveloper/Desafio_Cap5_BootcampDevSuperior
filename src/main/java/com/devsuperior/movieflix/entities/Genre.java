@@ -16,7 +16,7 @@ public class Genre implements Serializable {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "genre")
+    @OneToMany(mappedBy="genre")
     private List<Movie> movies = new ArrayList<>();
 
     public Genre() {
@@ -42,11 +42,6 @@ public class Genre implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    @OneToMany(mappedBy = "genre")
-    public List<Movie> getMovies() {
-        return movies;
     }
 
     @Override
