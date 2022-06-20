@@ -26,3 +26,4 @@ INSERT INTO tb_movie (title, sub_title, year, img_url, synopsis, genre_id) VALUE
 
 INSERT INTO tb_review (text, user_id, movie_id) VALUES ('Filme incrivel', 1, 1);
 INSERT INTO tb_review (text, user_id, movie_id) VALUES ('Este é um filme cativante', 1, 2);
+INSERT INTO tb_review (text, user_id, movie_id) VALUES ('legal', 1, 2);
