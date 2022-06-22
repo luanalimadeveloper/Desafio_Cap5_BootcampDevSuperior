@@ -2,6 +2,7 @@ package com.devsuperior.movieflix.services;
 
 import com.devsuperior.movieflix.entities.User;
 import com.devsuperior.movieflix.repositories.UserRepository;
+import com.devsuperior.movieflix.services.exceptions.ForbiddenException;
 import com.devsuperior.movieflix.services.exceptions.UnauthorizedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,4 +27,10 @@ public class AuthService {
 		}
 	}
 
+	public void validateMemberOrVisitor(Long userId) {
+		User user = authenticated();
+		if(user.getId().equals(userId) && !user.hasRole("ROLE_MEMBER")) {
+			throw new ForbiddenException("Access denied!");
+		}
+	}
 }

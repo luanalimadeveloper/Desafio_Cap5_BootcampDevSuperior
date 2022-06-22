@@ -29,6 +29,9 @@ public class ReviewService {
 
         Review entity = new Review();
         User user = authService.authenticated();
+
+        authService.validateMemberOrVisitor(user.getId());
+
         try {
             Movie movie = movieRepository.findById(dto.getMovieId()).orElseThrow();
 
