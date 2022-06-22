@@ -10,8 +10,9 @@ import org.springframework.data.jpa.repository.Query;
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     @Query(
-    "SELECT obj FROM Movie obj INNER JOIN obj.genre genreTable WHERE " +
-    "  (:genre) = NULL or (:genre) = genreTable "
+    "SELECT obj FROM Movie obj INNER JOIN obj.genre genreData WHERE " +
+    "  (:genre) = NULL or (:genre) = genreData " +
+    " ORDER BY obj.title"
     )
     Page<Movie> findByGenre(Genre genre, Pageable pageable);
 }
