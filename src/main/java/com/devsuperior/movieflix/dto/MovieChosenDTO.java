@@ -35,6 +35,7 @@ public class MovieChosenDTO implements Serializable {
         this.subTitle = entity.getSubTitle();
         this.year = entity.getYear();
         this.imgUrl = entity.getImgUrl();
+        this.synopsis = entity.getSynopsis();
         this.genre = genre;
     }
 
